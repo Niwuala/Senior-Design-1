@@ -1,0 +1,221 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "remote",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "PreviousChannel",
+                    "slots": [],
+                    "samples": [
+                        "switch to the previous channel",
+                        "go to the previous channel",
+                        "go to previous channel"
+                    ]
+                },
+                {
+                    "name": "Select",
+                    "slots": [],
+                    "samples": [
+                        "Enter",
+                        "Select"
+                    ]
+                },
+                {
+                    "name": "GoDown",
+                    "slots": [],
+                    "samples": [
+                        "Go down",
+                        "Down"
+                    ]
+                },
+                {
+                    "name": "GoUp",
+                    "slots": [],
+                    "samples": [
+                        "Go up",
+                        "Up"
+                    ]
+                },
+                {
+                    "name": "GoLeft",
+                    "slots": [],
+                    "samples": [
+                        "Go left",
+                        "Left"
+                    ]
+                },
+                {
+                    "name": "GoRight",
+                    "slots": [],
+                    "samples": [
+                        "Right",
+                        "Go right"
+                    ]
+                },
+                {
+                    "name": "Menu",
+                    "slots": [],
+                    "samples": [
+                        "Open the menu",
+                        "Open menu",
+                        "Go to the menu"
+                    ]
+                },
+                {
+                    "name": "Mute",
+                    "slots": [],
+                    "samples": [
+                        "Mute the TV",
+                        "Mute TV",
+                        "Mute"
+                    ]
+                },
+                {
+                    "name": "On",
+                    "slots": [],
+                    "samples": [
+                        "Turn on the TV",
+                        "TV on",
+                        "Turn the TV on"
+                    ]
+                },
+                {
+                    "name": "Off",
+                    "slots": [],
+                    "samples": [
+                        "Turn off the TV",
+                        "TV off",
+                        "Turn the TV off"
+                    ]
+                },
+                {
+                    "name": "VolumeUp",
+                    "slots": [],
+                    "samples": [
+                        "volume up",
+                        "Turn volume up"
+                    ]
+                },
+                {
+                    "name": "VolumeDown",
+                    "slots": [],
+                    "samples": [
+                        "volume down",
+                        "turn volume down"
+                    ]
+                },
+                {
+                    "name": "ChannelUp",
+                    "slots": [],
+                    "samples": [
+                        "Go up a channel",
+                        "Go up one channel"
+                    ]
+                },
+                {
+                    "name": "ChannelDown",
+                    "slots": [],
+                    "samples": [
+                        "Go down a channel",
+                        "Go down one channel"
+                    ]
+                },
+                {
+                    "name": "Exit",
+                    "slots": [],
+                    "samples": [
+                        "Exit",
+                        "TV exit"
+                    ]
+                },
+                {
+                    "name": "ChannelSixteen",
+                    "slots": [],
+                    "samples": [
+                        "switch over to channel sixteen",
+                        "switch to channel sixteen",
+                        "change to channel sixteen",
+                        "change the channel to channel sixteen",
+                        "Go to channel sixteen"
+                    ]
+                },
+                {
+                    "name": "ChannelTwentyOne",
+                    "slots": [],
+                    "samples": [
+                        "Switch over to channel twenty-one",
+                        "change to channel twenty-one",
+                        "change the channel to channel twenty-one",
+                        "Switch to channel twenty-one",
+                        "Go to channel twenty-one"
+                    ]
+                },
+                {
+                    "name": "ChannelTwentyThree",
+                    "slots": [],
+                    "samples": [
+                        "Change the channel to twenty-three",
+                        "Switch over to channel twenty-three",
+                        "change the channel to channel twenty-three",
+                        "Switch to channel twenty-three",
+                        "Go to channel twenty-three"
+                    ]
+                },
+                {
+                    "name": "ChannelThirtySix",
+                    "slots": [],
+                    "samples": [
+                        "Go to channel thirty-six",
+                        "switch over to channel thirty-six",
+                        "Switch to channel thirty-six",
+                        "Change the channel to channel thirty-six",
+                        "Change the channel to thirty-six"
+                    ]
+                },
+                {
+                    "name": "ChannelFortySeven",
+                    "slots": [],
+                    "samples": [
+                        "switch over to channel forty-seven",
+                        "switch to channel forty-seven",
+                        "change to channel forty-seven",
+                        "Change the channel to channel forty-seven",
+                        "Go to channel forty-seven"
+                    ]
+                },
+                {
+                    "name": "ChannelSixtyThree",
+                    "slots": [],
+                    "samples": [
+                        "switch to channel sixty-three",
+                        "switch over to channel sixty-three",
+                        "go to channel sixty-three",
+                        "change the channel to channel sixty-three",
+                        "Change the channel sixty-three"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
