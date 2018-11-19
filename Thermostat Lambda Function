@@ -1,0 +1,997 @@
+var https = require('https'); //include https
+
+exports.handler = (event, context) => {
+    
+  try {
+
+    if (event.session.new) {
+      // New Session
+      console.log("NEW SESSION"); //log this for debugging
+    }
+
+    switch (event.request.type) {
+
+      case "LaunchRequest":
+        // Launch Request
+        console.log(`LAUNCH REQUEST`);
+        context.succeed(
+          generateResponse(
+            buildSpeechletResponse("Welcome to the Temperature Control Skill. Say Alexa tell thermostat to set heat or AC to a specific temperature.", true), //This is what Alexa will say without any intent phrase
+            {}
+          )
+        );
+        break;
+
+      case "IntentRequest":
+        // Intent Request
+        console.log(`INTENT REQUEST`);
+
+        switch(event.request.intent.name) {
+            
+          case "HeatSixty": //Start the intent to set heat to 60 degrees
+            var endpoint = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=60"; 
+
+        https.get(endpoint, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 60", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+            
+            case "HeatSixtyOne": //Start the intent to set heat to 61 degrees
+            var endpoint_2 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=61"; 
+
+        https.get(endpoint_2, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 61", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+
+
+            case "HeatSixtyTwo": //Start the intent to set heat to 62 degrees
+            var endpoint_3 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=62"; 
+
+        https.get(endpoint_3, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 62", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+            
+            case "HeatSixtyThree": //Start the intent to set heat to 63 degrees
+            var endpoint_4 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=63"; 
+
+        https.get(endpoint_4, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 63", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+            
+            case "HeatSixtyFour": //Start the intent to set heat to 64 degrees
+            var endpoint_5 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=64"; 
+
+        https.get(endpoint_5, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 64", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+            
+            case "HeatSixtyFive": //Start the intent to set heat to 65 degrees
+            var endpoint_6 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=65"; 
+
+        https.get(endpoint_6, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 65", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+            
+            case "HeatSixtySix": //Start the intent to set heat to 66 degrees
+            var endpoint_7 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=66"; 
+
+        https.get(endpoint_7, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 66", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+            
+            case "HeatSixtySeven": //Start the intent to set heat to 67 degrees
+            var endpoint_8 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=67"; 
+
+        https.get(endpoint_8, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 67", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+            
+            case "HeatSixtyEight": //Start the intent to set heat to 68 degrees
+            var endpoint_9 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=68"; 
+
+        https.get(endpoint_9, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 68", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+            
+            case "HeatSixtyNine": //Start the intent to set heat to 69 degrees
+            var endpoint_10 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=69"; 
+
+        https.get(endpoint_10, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 69", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+            
+            case "HeatSeventy": //Start the intent to set heat to 70 degrees
+            var endpoint_11 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=70"; 
+
+        https.get(endpoint_11, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 70", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+            
+            case "HeatSeventyOne": //Start the intent to set heat to 71 degrees
+            var endpoint_12 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=71"; 
+
+        https.get(endpoint_12, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 71", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+            
+          case "HeatSeventyTwo": //Start the intent to set heat to 72 degrees
+            var endpoint_13 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=72"; 
+
+        https.get(endpoint_13, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 72", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;  
+          
+          
+          case "HeatSeventyThree": //Start the intent to set heat to 73 degrees
+            var endpoint_14 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=73"; 
+
+        https.get(endpoint_14, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 73", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+          
+          
+          case "HeatSeventyFour": //Start the intent to set heat to 74 degrees
+            var endpoint_15 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=74"; 
+
+        https.get(endpoint_15, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 74", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+          
+          
+          case "HeatSeventyFive": //Start the intent to set heat to 75 degrees
+            var endpoint_16 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=75"; 
+
+        https.get(endpoint_16, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 75", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+            
+            case "HeatSeventySix": //Start the intent to set heat to 76 degrees
+            var endpoint_17 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=76"; 
+
+        https.get(endpoint_17, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 76", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+            
+            case "HeatSeventySeven": //Start the intent to set heat to 77 degrees
+            var endpoint_18 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=77"; 
+
+        https.get(endpoint_18, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 77", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+          
+          case "HeatSeventyEight": //Start the intent to set heat to 78 degrees
+            var endpoint_19 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=78"; 
+
+        https.get(endpoint_19, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 78", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+            
+            case "HeatSeventyNine": //Start the intent to set heat to 79 degrees
+            var endpoint_20 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=79"; 
+
+        https.get(endpoint_20, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 79", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+          
+          case "HeatEighty": //Start the intent to set heat to 80 degrees
+            var endpoint_21 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=80"; 
+
+        https.get(endpoint_21, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 80", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+          
+          
+           case "HeatEightyOne": //Start the intent to set heat to 81 degrees
+            var endpoint_22 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=81"; 
+
+        https.get(endpoint_22, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 81", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+            
+             case "HeatEightyTwo": //Start the intent to set heat to 82 degrees
+            var endpoint_23 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=82"; 
+
+        https.get(endpoint_23, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 82", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+          
+          
+           case "HeatEightyThree": //Start the intent to set heat to 83 degrees
+            var endpoint_24 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=83"; 
+
+        https.get(endpoint_24, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 83", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+            
+            
+             case "HeatEightyFour": //Start the intent to set heat to 84 degrees
+            var endpoint_25 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=84"; 
+
+        https.get(endpoint_25, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 84", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+          
+          
+           case "HeatEightyFive": //Start the intent to set heat to 85 degrees
+            var endpoint_26 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=85"; 
+
+        https.get(endpoint_26, function (result) {
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The heat has been set to 85", true), 
+                {}
+            )
+          );
+          })
+          .on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+          
+          
+          case "ACSixty": //Start the intent to set AC to 60 degrees
+            var endpoint_27 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=60";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_27, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 60", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACSixtyOne": //Start the intent to set AC to 61 degrees
+            var endpoint_28 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=61";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_28, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 61", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACSixtyTwo": //Start the intent to set AC to 62 degrees
+            var endpoint_29 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=62";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_29, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 62", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            
+            case "ACSixtyThree": //Start the intent to set AC to 63 degrees
+            var endpoint_30 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=63";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_30, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 63", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACSixtyFour": //Start the intent to set AC to 64 degrees
+            var endpoint_31 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=64";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_31, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 64", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            
+            case "ACSixtyFive": //Start the intent to set AC to 65 degrees
+            var endpoint_32 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=65";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_32, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 65", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACSixtySix": //Start the intent to set AC to 66 degrees
+            var endpoint_33 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=66";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_33, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 66", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACSixtySeven": //Start the intent to set AC to 67 degrees
+            var endpoint_34 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=67";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_34, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 67", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACSixtyEight": //Start the intent to set AC to 68 degrees
+            var endpoint_35 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=68";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_35, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 68", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            case "ACSixtyNine": //Start the intent to set AC to 69 degrees
+            var endpoint_36 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=69";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_36, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 69", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACSeventy": //Start the intent to set AC to 70 degrees
+            var endpoint_37 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=70";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_37, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 70", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACSeventyOne": //Start the intent to set AC to 71 degrees
+            var endpoint_38 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=71";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_38, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 71", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACSeventyTwo": //Start the intent to set AC to 72 degrees
+            var endpoint_39 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=72";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_39, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 72", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACSeventyThree": //Start the intent to set AC to 73 degrees
+            var endpoint_40 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=73";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_40, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 71", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACSeventyFour": //Start the intent to set AC to 74 degrees
+            var endpoint_41 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=74";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_41, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 74", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACSeventyFive": //Start the intent to set AC to 75 degrees
+            var endpoint_42 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=75";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_42, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 75", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACSeventySix": //Start the intent to set AC to 76 degrees
+            var endpoint_43 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=76";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_43, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 76", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACSeventySeven": //Start the intent to set AC to 77 degrees
+            var endpoint_44 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=77";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_44, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 77", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACSeventyEight": //Start the intent to set AC to 78 degrees
+            var endpoint_45 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=78";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_45, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 78", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACSeventyNine": //Start the intent to set AC to 79 degrees
+            var endpoint_46 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=79";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_46, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 79", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACEighty": //Start the intent to set AC to 80 degrees
+            var endpoint_47 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=80";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_47, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 80", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACEightyOne": //Start the intent to set AC to 81 degrees
+            var endpoint_48 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=81";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_48, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 81", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACEightyTwo": //Start the intent to set AC to 82 degrees
+            var endpoint_49 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=82";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_49, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 82", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACEightyThree": //Start the intent to set AC to 83 degrees
+            var endpoint_50 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=83";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_50, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 83", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACEightyFour": //Start the intent to set AC to 84 degrees
+            var endpoint_51 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=84";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_51, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 84", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+            
+            
+            case "ACEightyFive": //Start the intent to set AC to 85 degrees
+            var endpoint_52 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=85";
+            // The temperature value is sent to ThingSpeak
+                        
+            https.get(endpoint_52, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The AC has been set to 85", true), //This is what Alexa will say if value is set
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+
+            case "TurnOff": //Turn unit off intent
+              var endpoint_53 = "https://api.thingspeak.com/update?api_key=CI62VYHJJMC0PTTQ&field1=&field2=&field3=0";
+              // The value 0 is sent to ThingSpeak to represent unit is off
+                          
+              https.get(endpoint_53, function (result) {
+              console.log('Success, with: ' + result.statusCode);
+              context.succeed(
+                  generateResponse(buildSpeechletResponse("The thermostat unit has been turned off.", true), //This is what Alexa will say if value is set
+                      {}
+                  )
+              );
+              }).on('error', function (err) {
+              console.log('Error, with: ' + err.message);
+              context.done("Failed");
+              });
+              break;
+
+      case "SessionEndedRequest":
+        // Session Ended Request
+        console.log(`SESSION ENDED REQUEST`);
+        break;
+
+      default:
+        context.fail(`INVALID REQUEST TYPE: ${event.request.type}`);
+
+    }
+
+  }
+
+}
+
+    catch(error) {context.fail(`Exception: ${error}`) }
+
+// This is what builds the responce for Alexa
+buildSpeechletResponse = (outputText, shouldEndSession) => {
+
+  return {
+    outputSpeech: {
+      type: "PlainText",
+      text: outputText
+    },
+    shouldEndSession: shouldEndSession
+  };
+
+};
+
+//This is what plays the responce for Alexa
+generateResponse = (speechletResponse, sessionAttributes) => {
+
+  return {
+    version: "1.0",
+    sessionAttributes: sessionAttributes,
+    response: speechletResponse
+  };
+
+};
+};
