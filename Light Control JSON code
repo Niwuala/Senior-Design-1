@@ -1,0 +1,48 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "light switch",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "TurnLightONIntent",
+                    "slots": [],
+                    "samples": [
+                        "On the light",
+                        "Switch the light on",
+                        "Turn the light on "
+                    ]
+                },
+                {
+                    "name": "TurnLightOFFIntent",
+                    "slots": [],
+                    "samples": [
+                        "Off the light",
+                        "Switch the light off",
+                        "Turn the light off"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
