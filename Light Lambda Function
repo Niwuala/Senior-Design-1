@@ -1,0 +1,101 @@
+var https = require('https'); //we must include the https library to make HTTP GET requests
+
+exports.handler = (event, context) => {
+
+  try {
+
+    if (event.session.new) {
+      // New Session
+      console.log("NEW SESSION");
+    }
+
+    switch (event.request.type) {
+
+      case "LaunchRequest":
+        // Launch Request
+        console.log(`LAUNCH REQUEST`);
+        context.succeed(
+          generateResponse(
+            buildSpeechletResponse("Welcome to the Light Control Skill, say turn light on or turn light off", true), //This is what Alexa will say without any intent phrase
+            {}
+          )
+        );
+        break;
+
+      case "IntentRequest": // This will begin the intent requests
+        // Intent Request
+        console.log(`INTENT REQUEST`);
+
+        switch(event.request.intent.name) {
+          case "TurnLightONIntent": 
+          var endpoint = "https://api.thingspeak.com/update?api_key=T71NLBD9RV7VXBX5&field1=1"; 
+          // Value "1" sent to thingspeak
+
+          https.get(endpoint, function (result) { // This is the get request to upload the data to ThingSpeak
+          console.log('Success, with: ' + result.statusCode);
+          context.succeed(generateResponse(buildSpeechletResponse("The light has been turned on.", true), // This is what Alexa will say if light is turned on
+                {}
+            )
+          );
+          }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+          });
+            break;
+
+          case "TurnLightOFFIntent": //the turn light off intent
+            var endpoint_2 = "https://api.thingspeak.com/update?api_key=T71NLBD9RV7VXBX5&field1=0"; /* Value "0" sent to thingspeak */
+                        
+            https.get(endpoint_2, function (result) {
+            console.log('Success, with: ' + result.statusCode);
+            context.succeed(
+                generateResponse(buildSpeechletResponse("The light has been turned off.", true), //This is what Alexa will say if light is turned off
+                    {}
+                )
+            );
+            }).on('error', function (err) {
+            console.log('Error, with: ' + err.message);
+            context.done("Failed");
+            });
+            break;
+
+      case "SessionEndedRequest":
+        // Session Ended Request
+        console.log(`SESSION ENDED REQUEST`);
+        break;
+
+      default:
+        context.fail(`INVALID REQUEST TYPE: ${event.request.type}`);
+
+    }
+
+  }
+
+}
+
+    catch(error) {context.fail(`Exception: ${error}`) }
+
+// This is what builds the Alexa response
+buildSpeechletResponse = (outputText, shouldEndSession) => {
+
+  return {
+    outputSpeech: {
+      type: "PlainText",
+      text: outputText
+    },
+    shouldEndSession: shouldEndSession
+  };
+
+};
+
+//This is what plays the Alexa response that was build
+generateResponse = (speechletResponse, sessionAttributes) => {
+
+  return {
+    version: "1.0",
+    sessionAttributes: sessionAttributes,
+    response: speechletResponse
+  };
+
+};
+};
