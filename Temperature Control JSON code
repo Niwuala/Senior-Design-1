@@ -1,0 +1,609 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "thermostat",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "HeatSixty",
+                    "slots": [],
+                    "samples": [
+                        "set heat to sixty",
+                        "put the heat on sixty ",
+                        "set the heat to sixty degrees",
+                        "put the heat on sixty degrees"
+                    ]
+                },
+                {
+                    "name": "ACSixty",
+                    "slots": [],
+                    "samples": [
+                        "put the AC on sixty",
+                        "put the AC on sixty degrees",
+                        "set the AC to sixty degrees",
+                        "Set the AC to sixty"
+                    ]
+                },
+                {
+                    "name": "TurnOff",
+                    "slots": [],
+                    "samples": [
+                        "Off",
+                        "Turn off",
+                        "Turn unit off",
+                        "Turn AC off",
+                        "Turn heat off"
+                    ]
+                },
+                {
+                    "name": "HeatSixtyFive",
+                    "slots": [],
+                    "samples": [
+                        "put the heat on sixty five degrees",
+                        "Set the heat to sixty five degrees",
+                        "put the heat on sixty five",
+                        "Set heat to sixty five",
+                        "Put heat on sixty five"
+                    ]
+                },
+                {
+                    "name": "HeatSixtyOne",
+                    "slots": [],
+                    "samples": [
+                        "set the heat on sixty one",
+                        "set the heat to sixty one degrees",
+                        "Put the heat on sixty one",
+                        "Set heat to sixty one",
+                        "Put heat on sixty one"
+                    ]
+                },
+                {
+                    "name": "ACSixtyOne",
+                    "slots": [],
+                    "samples": [
+                        "Put the AC on sixty one degrees",
+                        "Set the AC to sixty one degrees",
+                        "Put the AC to sixty one",
+                        "Set AC to sixty one",
+                        "Put the AC on sixty one"
+                    ]
+                },
+                {
+                    "name": "HeatSixtyTwo",
+                    "slots": [],
+                    "samples": [
+                        "put the heat on sixty two degrees",
+                        "set the heat to sixty two degrees",
+                        "put heat on sixty two",
+                        "set heat to sixty two",
+                        "Put the heat on sixty two"
+                    ]
+                },
+                {
+                    "name": "ACSixtyTwo",
+                    "slots": [],
+                    "samples": [
+                        "Set the ac to sixty two",
+                        "Put the AC on sixty two degrees",
+                        "set AC to sixty two degrees",
+                        "Put AC on sixty two"
+                    ]
+                },
+                {
+                    "name": "HeatSixtyThree",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to sixty three degrees",
+                        "Put the heat on sixty three degrees",
+                        "Set heat to sixty three",
+                        "Put the heat on sixty three",
+                        "Put heat on sixty three"
+                    ]
+                },
+                {
+                    "name": "ACSixtyThree",
+                    "slots": [],
+                    "samples": [
+                        "put the AC on sixty three",
+                        "Put the AC on sixty three degrees",
+                        "Set AC to sixty three degrees",
+                        "Set AC to sixty three",
+                        "Put AC on sixty three"
+                    ]
+                },
+                {
+                    "name": "HeatSixtyFour",
+                    "slots": [],
+                    "samples": [
+                        "put heat on sixty four",
+                        "Put the heat on sixty four",
+                        "Set the heat to sixty four degrees",
+                        "Put the heat on sixty four degrees"
+                    ]
+                },
+                {
+                    "name": "ACSixtyFour",
+                    "slots": [],
+                    "samples": [
+                        "Put the AC on sixty four",
+                        "Put the AC on sixty four degrees",
+                        "set AC to sixty four degrees",
+                        "Set AC to sixty four",
+                        "Put AC on sixty four"
+                    ]
+                },
+                {
+                    "name": "ACSixtyFive",
+                    "slots": [],
+                    "samples": [
+                        "Set the AC to sixty five degrees",
+                        "Set the AC to sixty five",
+                        "Put AC on sixty five",
+                        "Set AC to sixty five",
+                        "Put the AC on sixty five"
+                    ]
+                },
+                {
+                    "name": "HeatSixtySix",
+                    "slots": [],
+                    "samples": [
+                        "put the heat on sixty six",
+                        "put heat on sixty six degrees",
+                        "put heat on sixty six",
+                        "Set heat to sixty six degrees",
+                        "Set heat to sixty six"
+                    ]
+                },
+                {
+                    "name": "ACSixtySix",
+                    "slots": [],
+                    "samples": [
+                        "set AC to sixty six degrees",
+                        "put AC on sixty six degrees",
+                        "put the AC on sixty six",
+                        "Put the AC on sixty six degrees",
+                        "Set the AC to sixty six "
+                    ]
+                },
+                {
+                    "name": "HeatSixtySeven",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to sixty seven degrees",
+                        "set the heat to sixty seven",
+                        "put heat on sixty seven degrees",
+                        "set heat to sixty seven",
+                        "Put the heat on sixty seven"
+                    ]
+                },
+                {
+                    "name": "ACSixtySeven",
+                    "slots": [],
+                    "samples": [
+                        "set the AC to sixty seven",
+                        "put the AC on sixty seven degrees",
+                        "set the AC to sixty seven degrees",
+                        "put the AC on sixty seven",
+                        "Set AC to sixty seven"
+                    ]
+                },
+                {
+                    "name": "HeatSixtyEight",
+                    "slots": [],
+                    "samples": [
+                        "put heat on sixty eight",
+                        "set the heat to sixty eight",
+                        "Set the heat to sixty eight degrees",
+                        "put the heat on sixty eight",
+                        "set heat to sixty eight"
+                    ]
+                },
+                {
+                    "name": "ACSixtyEight",
+                    "slots": [],
+                    "samples": [
+                        "set the AC on sixty eight degrees",
+                        "put the AC on sixty eight",
+                        "set the AC to sixty eight",
+                        "put AC on sixty eight",
+                        "set AC to sixty eight"
+                    ]
+                },
+                {
+                    "name": "HeatSixtyNine",
+                    "slots": [],
+                    "samples": [
+                        "put heat on sixty nine degrees",
+                        "set the heat to sixty nine",
+                        "Put the heat on sixty nine",
+                        "put heat on sixty nine",
+                        "Set heat to sixty nine"
+                    ]
+                },
+                {
+                    "name": "ACSixtyNine",
+                    "slots": [],
+                    "samples": [
+                        "Set the AC to sixty nine degrees",
+                        "Set the AC to sixty nine",
+                        "put the AC on sixty nine degrees",
+                        "Put AC on sixty nine",
+                        "Set AC to sixty nine"
+                    ]
+                },
+                {
+                    "name": "HeatSeventy",
+                    "slots": [],
+                    "samples": [
+                        "set heat to seventy",
+                        "set the heat to seventy",
+                        "put the heat on seventy degrees",
+                        "put heat on seventy",
+                        "Set heat to seventy degrees"
+                    ]
+                },
+                {
+                    "name": "ACSeventy",
+                    "slots": [],
+                    "samples": [
+                        "set the AC to seventy",
+                        "put the AC on seventy degrees",
+                        "set AC to seventy",
+                        "put AC on seventy",
+                        "Set AC to seventy degrees"
+                    ]
+                },
+                {
+                    "name": "HeatSeventyOne",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to seventy one degrees",
+                        "put the heat on seventy one",
+                        "set the heat to seventy one",
+                        "put heat on seventy one",
+                        "Set heat to seventy one"
+                    ]
+                },
+                {
+                    "name": "ACSeventyOne",
+                    "slots": [],
+                    "samples": [
+                        "set the AC to seventy one degrees",
+                        "put the AC on seventy one",
+                        "put AC on seventy one ",
+                        "set the AC to seventy one",
+                        "set AC to seventy one"
+                    ]
+                },
+                {
+                    "name": "HeatSeventyTwo",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to seventy two degrees",
+                        "set the heat to seventy two",
+                        "put the heat on seventy two",
+                        "put heat on seventy two",
+                        "set heat to seventy two"
+                    ]
+                },
+                {
+                    "name": "ACSeventyTwo",
+                    "slots": [],
+                    "samples": [
+                        "put the AC on seventy two",
+                        "set the AC to seventy two degrees",
+                        "set the AC to seventy two",
+                        "put AC on seventy two",
+                        "set AC to seventy two"
+                    ]
+                },
+                {
+                    "name": "HeatSeventyThree",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to seventy three degrees",
+                        "put the heat on seventy three",
+                        "set the heat to seventy three",
+                        "put heat on seventy three",
+                        "set heat to seventy three"
+                    ]
+                },
+                {
+                    "name": "ACSeventyThree",
+                    "slots": [],
+                    "samples": [
+                        "set the AC to seventy three degrees",
+                        "put the AC on seventy three",
+                        "set the AC to seventy three",
+                        "put AC on seventy three",
+                        "set AC to seventy three"
+                    ]
+                },
+                {
+                    "name": "HeatSeventyFour",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to seventy four degrees",
+                        "put heat on seventy four",
+                        "put the heat on seventy four",
+                        "set the heat to seventy four",
+                        "set heat to seventy four"
+                    ]
+                },
+                {
+                    "name": "ACSeventyFour",
+                    "slots": [],
+                    "samples": [
+                        "set the AC to seventy four degrees",
+                        "put the AC on seventy four",
+                        "set the AC to seventy four",
+                        "put AC on seventy four",
+                        "set AC to seventy four"
+                    ]
+                },
+                {
+                    "name": "HeatSeventyFive",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to seventy five degrees",
+                        "put the heat on seventy five",
+                        "set the heat to seventy five",
+                        "put heat on seventy five",
+                        "set heat to seventy five"
+                    ]
+                },
+                {
+                    "name": "ACSeventyFive",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to seventy five degrees",
+                        "put the heat on seventy five",
+                        "set the heat to seventy five",
+                        "put heat on seventy five",
+                        "set heat to seventy five"
+                    ]
+                },
+                {
+                    "name": "HeatSeventySix",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to seventy six degrees",
+                        "put the heat on seventy six",
+                        "set the heat to seventy six",
+                        "put heat on seventy six",
+                        "set heat to seventy six"
+                    ]
+                },
+                {
+                    "name": "ACSeventySix",
+                    "slots": [],
+                    "samples": [
+                        "set the AC to seventy six degrees",
+                        "set the AC to seventy six",
+                        "put the AC on seventy six",
+                        "put AC on seventy six",
+                        "set AC to seventy six"
+                    ]
+                },
+                {
+                    "name": "HeatSeventySeven",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to seventy seven",
+                        "put heat on seventy seven",
+                        "set the heat to seventy seven degrees",
+                        "put the heat on seventy seven",
+                        "set heat to seventy seven"
+                    ]
+                },
+                {
+                    "name": "ACSeventySeven",
+                    "slots": [],
+                    "samples": [
+                        "set the AC to seventy seven degrees",
+                        "put the AC on seventy seven",
+                        "set the AC to seventy seven",
+                        "put AC on seventy seven",
+                        "set AC to seventy seven"
+                    ]
+                },
+                {
+                    "name": "HeatSeventyEight",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to seventy eight degres",
+                        "put the heat on seventy eight",
+                        "set the heat to seventy eight",
+                        "put heat on seventy eight",
+                        "set heat to seventy eight"
+                    ]
+                },
+                {
+                    "name": "ACSeventyEight",
+                    "slots": [],
+                    "samples": [
+                        "set the AC to seventy eight degrees",
+                        "put the AC on seventy eight",
+                        "set the AC to seventy eight",
+                        "put AC on seventy eight",
+                        "set AC to seventy eight"
+                    ]
+                },
+                {
+                    "name": "HeatSeventyNine",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to seventy nine degrees",
+                        "put the heat to seventy nine",
+                        "set the heat to seventy nine",
+                        "put heat on seventy nine",
+                        "set heat to seventy nine"
+                    ]
+                },
+                {
+                    "name": "ACSeventyNine",
+                    "slots": [],
+                    "samples": [
+                        "set the AC to seventy nine degrees",
+                        "set the AC to seventy nine",
+                        "put the AC on seventy nine",
+                        "put AC on seventy nine",
+                        "set AC to seventy nine"
+                    ]
+                },
+                {
+                    "name": "HeatEighty",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to eighty degrees",
+                        "put heat on eighty",
+                        "put the heat on eighty",
+                        "set the heat to eighty",
+                        "set heat to eighty"
+                    ]
+                },
+                {
+                    "name": "ACEighty",
+                    "slots": [],
+                    "samples": [
+                        "set the AC to eighty degrees",
+                        "put AC on eighty",
+                        "put the AC on eighty",
+                        "set the AC to eighty",
+                        "set AC to eighty"
+                    ]
+                },
+                {
+                    "name": "HeatEightyOne",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to eighty one degrees",
+                        "put the heat on eighty one",
+                        "set the heat to eighty one",
+                        "set heat to eighty one",
+                        "put heat on eighty one"
+                    ]
+                },
+                {
+                    "name": "ACEightyOne",
+                    "slots": [],
+                    "samples": [
+                        "set the AC to eighty one degrees",
+                        "put the AC on eighty one",
+                        "put AC on eighty one",
+                        "set the AC to eighty one",
+                        "set AC to eighty one "
+                    ]
+                },
+                {
+                    "name": "HeatEightyTwo",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to eighty two degrees",
+                        "put the heat on eighty two",
+                        "set the heat to eighty two",
+                        "put heat on eighty two",
+                        "set heat to eighty two"
+                    ]
+                },
+                {
+                    "name": "ACEightyTwo",
+                    "slots": [],
+                    "samples": [
+                        "set the AC on eighty two degrees",
+                        "put the AC on eighty two",
+                        "set the AC on eighty two ",
+                        "put AC on eighty two",
+                        "set AC to eighty two"
+                    ]
+                },
+                {
+                    "name": "HeatEightyThree",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to eighty three degrees",
+                        "put the heat on eighty three",
+                        "set the heat to eighty three",
+                        "put heat on eighty three",
+                        "set heat to eighty three"
+                    ]
+                },
+                {
+                    "name": "ACEightyThree",
+                    "slots": [],
+                    "samples": [
+                        "set the AC to eighty three degrees",
+                        "put the AC on eighty three",
+                        "set the AC to eighty three",
+                        "put AC on eighty three",
+                        "set AC to eighty three"
+                    ]
+                },
+                {
+                    "name": "HeatEightyFour",
+                    "slots": [],
+                    "samples": [
+                        "set the heat to eighty four degrees",
+                        "put the heat on eighty four",
+                        "set the heat to eighty four",
+                        "put heat on eighty four",
+                        "set heat to eighty four"
+                    ]
+                },
+                {
+                    "name": "ACEightyFour",
+                    "slots": [],
+                    "samples": [
+                        "set the AC on eighty four degrees",
+                        "put AC on eighty four",
+                        "set the AC on eighty four",
+                        "put the AC on eighty four",
+                        "set AC to eighty four"
+                    ]
+                },
+                {
+                    "name": "HeatEightyFive",
+                    "slots": [],
+                    "samples": [
+                        "put heat on eighty five",
+                        "put the heat on eighty five",
+                        "set the heat to eighty five degrees",
+                        "set the heat to eighty five",
+                        "set heat to eighty five"
+                    ]
+                },
+                {
+                    "name": "ACEightyFive",
+                    "slots": [],
+                    "samples": [
+                        "set the AC on eighty five degrees",
+                        "put the AC on eighty five",
+                        "set the AC on eighty five",
+                        "put AC on eighty five",
+                        "set AC to eighty five"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
