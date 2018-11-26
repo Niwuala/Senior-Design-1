@@ -1,5 +1,5 @@
 var https = require('https'); //include https
-var ch_num = [16, 21, 23, 36, 47, 63]
+
 
 exports.handler = (event, context) => {
 
@@ -18,7 +18,7 @@ exports.handler = (event, context) => {
         context.succeed(
           generateResponse(
             buildSpeechletResponse("Welcome to the Remote Control skill. Tell me a command pertaining to your television.", true), //This is what Alexa will say without any intent phrase
-            {}
+            
           )
         );
         break;
@@ -29,7 +29,7 @@ exports.handler = (event, context) => {
 
         switch(event.request.intent.name) {
             
-          case "VolumeUp": 
+          case "VolumeUp": //Volume up intent
           var endpoint = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=100"; 
           // Value "100" sent to thingspeak
 
@@ -37,8 +37,8 @@ exports.handler = (event, context) => {
 
           https.get(endpoint, function (result) {
           console.log('Success, with: ' + result.statusCode);
-          context.succeed(generateResponse(buildSpeechletResponse("Turning volume up.", true), // This is what Alexa will say if light is turned on
-                {}
+          context.succeed(generateResponse(buildSpeechletResponse("Turning volume up.", true), // This is what Alexa will say when the volume is being turned up.
+                
             )
           );
           }).on('error', function (err) {
@@ -48,14 +48,14 @@ exports.handler = (event, context) => {
             break;
 
 
-          case "VolumeDown": //the turn light off intent
+          case "VolumeDown": //Volume down intent
             var endpoint_2 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=101"; /* Value "101" sent to thingspeak */
                         
             https.get(endpoint_2, function (result) {
             console.log('Success, with: ' + result.statusCode);
             context.succeed(
-                generateResponse(buildSpeechletResponse("Turning volume down.", true), //This is what Alexa will say if light is turned off
-                    {}
+                generateResponse(buildSpeechletResponse("Turning volume down.", true), //This is what Alexa will say when the volume is being turned downg
+                    
                 )
             );
             }).on('error', function (err) {
@@ -65,13 +65,13 @@ exports.handler = (event, context) => {
             break;
             
             
-            case "ChannelUp": //the turn light off intent
+            case "ChannelUp": 
             var endpoint_3 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=102"; /* Value "102" sent to thingspeak */
                         
             https.get(endpoint_3, function (result) {
             console.log('Success, with: ' + result.statusCode);
             context.succeed(
-                generateResponse(buildSpeechletResponse("Going one channel up.", true), //This is what Alexa will say if light is turned off
+                generateResponse(buildSpeechletResponse("Going one channel up.", true), //This is what Alexa will say when the channel will go up by one
                     {}
                 )
             );
@@ -82,13 +82,13 @@ exports.handler = (event, context) => {
             break;
             
             
-            case "ChannelDown": //the turn light off intent
-            var endpoint_4 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=103"; /* Value "102" sent to thingspeak */
+            case "ChannelDown": 
+            var endpoint_4 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=103"; /* Value "103" sent to thingspeak */
                         
             https.get(endpoint_4, function (result) {
             console.log('Success, with: ' + result.statusCode);
             context.succeed(
-                generateResponse(buildSpeechletResponse("Going one channel down.", true), //This is what Alexa will say if light is turned off
+                generateResponse(buildSpeechletResponse("Going one channel down.", true), //This is what Alexa will say when the channel will go down by one
                     {}
                 )
             );
@@ -99,13 +99,13 @@ exports.handler = (event, context) => {
             break;
             
             
-                case "Mute": //the turn light off intent
-            var endpoint_5 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=104"; /* Value "102" sent to thingspeak */
+                case "Mute": 
+            var endpoint_5 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=104"; /* Value "104" sent to thingspeak */
                         
             https.get(endpoint_5, function (result) {
             console.log('Success, with: ' + result.statusCode);
             context.succeed(
-                generateResponse(buildSpeechletResponse("Muting TV.", true), //This is what Alexa will say if light is turned off
+                generateResponse(buildSpeechletResponse("Muting TV.", true), //This is what Alexa will say if television is being muted
                     {}
                 )
             );
@@ -116,13 +116,13 @@ exports.handler = (event, context) => {
             break;
             
             
-                case "On": //the turn light off intent
-            var endpoint_6 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=105"; /* Value "102" sent to thingspeak */
+                case "On":
+            var endpoint_6 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=105"; /* Value "105" sent to thingspeak */
                         
             https.get(endpoint_6, function (result) {
             console.log('Success, with: ' + result.statusCode);
             context.succeed(
-                generateResponse(buildSpeechletResponse("Turning TV on.", true), //This is what Alexa will say if light is turned off
+                generateResponse(buildSpeechletResponse("Turning TV on.", true), //This is what Alexa will say if television is being turned on
                     {}
                 )
             );
@@ -133,13 +133,13 @@ exports.handler = (event, context) => {
             break;
             
             
-                case "Off": //the turn light off intent
-            var endpoint_7 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=106"; /* Value "102" sent to thingspeak */
+                case "Off": 
+            var endpoint_7 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=106"; /* Value "106" sent to thingspeak */
                         
             https.get(endpoint_7, function (result) {
             console.log('Success, with: ' + result.statusCode);
             context.succeed(
-                generateResponse(buildSpeechletResponse("Turning TV off.", true), //This is what Alexa will say if light is turned off
+                generateResponse(buildSpeechletResponse("Turning TV off.", true), //This is what Alexa will say if television is turned off
                     {}
                 )
             );
@@ -150,13 +150,13 @@ exports.handler = (event, context) => {
             break;
             
             
-                case "Menu": //the turn light off intent
-            var endpoint_8 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=107"; /* Value "102" sent to thingspeak */
+                case "Menu":
+            var endpoint_8 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=107"; /* Value "107" sent to thingspeak */
                         
             https.get(endpoint_8, function (result) {
             console.log('Success, with: ' + result.statusCode);
             context.succeed(
-                generateResponse(buildSpeechletResponse("Opening TV menu.", true), //This is what Alexa will say if light is turned off
+                generateResponse(buildSpeechletResponse("Opening TV menu.", true), //This is what Alexa will say if the television menu is opened
                     {}
                 )
             );
@@ -167,13 +167,13 @@ exports.handler = (event, context) => {
             break;
             
             
-                case "PreviousChannel": //the turn light off intent
-            var endpoint_9 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=108"; /* Value "102" sent to thingspeak */
+                case "PreviousChannel":
+            var endpoint_9 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=108"; /* Value "108" sent to thingspeak */
                         
             https.get(endpoint_9, function (result) {
             console.log('Success, with: ' + result.statusCode);
             context.succeed(
-                generateResponse(buildSpeechletResponse("Switching to previous channel", true), //This is what Alexa will say if light is turned off
+                generateResponse(buildSpeechletResponse("Switching to previous channel", true), //This is what Alexa will say if the previous channel is being requested
                     {}
                 )
             );
@@ -184,13 +184,13 @@ exports.handler = (event, context) => {
             break;
             
             
-                case "Select": //the turn light off intent
-            var endpoint_10 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=109"; /* Value "102" sent to thingspeak */
+                case "Select": 
+            var endpoint_10 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=109"; /* Value "109" sent to thingspeak */
                         
             https.get(endpoint_10, function (result) {
             console.log('Success, with: ' + result.statusCode);
             context.succeed(
-                generateResponse(buildSpeechletResponse("Selecting option.", true), //This is what Alexa will say if light is turned off
+                generateResponse(buildSpeechletResponse("Selecting option.", true), //This is what Alexa will say if option is selected
                     {}
                 )
             );
@@ -201,13 +201,13 @@ exports.handler = (event, context) => {
             break;
             
             
-                case "Exit": //the turn light off intent
-            var endpoint_11 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=110"; /* Value "102" sent to thingspeak */
+                case "Exit":
+            var endpoint_11 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=110"; /* Value "110" sent to thingspeak */
                         
             https.get(endpoint_11, function (result) {
             console.log('Success, with: ' + result.statusCode);
             context.succeed(
-                generateResponse(buildSpeechletResponse("Okay.", true), //This is what Alexa will say if light is turned off
+                generateResponse(buildSpeechletResponse("Okay.", true), //This is what Alexa will say the command is to exit
                     {}
                 )
             );
@@ -218,13 +218,13 @@ exports.handler = (event, context) => {
             break;
             
             
-                case "GoDown": //the turn light off intent
-            var endpoint_12 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=111"; /* Value "102" sent to thingspeak */
+                case "GoDown":
+            var endpoint_12 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=111"; /* Value "111" sent to thingspeak */
                         
             https.get(endpoint_12, function (result) {
             console.log('Success, with: ' + result.statusCode);
             context.succeed(
-                generateResponse(buildSpeechletResponse("Going down.", true), //This is what Alexa will say if light is turned off
+                generateResponse(buildSpeechletResponse("Going down.", true), //This is what Alexa will say if the option is to go down
                     {}
                 )
             );
@@ -235,13 +235,13 @@ exports.handler = (event, context) => {
             break;
             
             
-                case "GoUp": //the turn light off intent
-            var endpoint_13 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=112"; /* Value "102" sent to thingspeak */
+                case "GoUp": 
+            var endpoint_13 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=112"; /* Value "112" sent to thingspeak */
                         
             https.get(endpoint_13, function (result) {
             console.log('Success, with: ' + result.statusCode);
             context.succeed(
-                generateResponse(buildSpeechletResponse("Going up.", true), //This is what Alexa will say if light is turned off
+                generateResponse(buildSpeechletResponse("Going up.", true), //This is what Alexa will say if the option is to go up
                     {}
                 )
             );
@@ -252,13 +252,13 @@ exports.handler = (event, context) => {
             break;
             
             
-                case "GoLeft": //the turn light off intent
-            var endpoint_14 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=113"; /* Value "102" sent to thingspeak */
+                case "GoLeft": 
+            var endpoint_14 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=113"; /* Value "113" sent to thingspeak */
                         
             https.get(endpoint_14, function (result) {
             console.log('Success, with: ' + result.statusCode);
             context.succeed(
-                generateResponse(buildSpeechletResponse("Going left.", true), //This is what Alexa will say if light is turned off
+                generateResponse(buildSpeechletResponse("Going left.", true), //This is what Alexa will say if the option is to go left
                     {}
                 )
             );
@@ -269,13 +269,13 @@ exports.handler = (event, context) => {
             break;
             
             
-                case "GoRight": //the turn light off intent
-            var endpoint_15 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=114"; /* Value "102" sent to thingspeak */
+                case "GoRight": 
+            var endpoint_15 = "https://api.thingspeak.com/update?api_key=XGCXWVZVO8YFWF8J&field1=114"; /* Value "114" sent to thingspeak */
                         
             https.get(endpoint_15, function (result) {
             console.log('Success, with: ' + result.statusCode);
             context.succeed(
-                generateResponse(buildSpeechletResponse("Going right.", true), //This is what Alexa will say if light is turned off
+                generateResponse(buildSpeechletResponse("Going right.", true), //This is what Alexa will say if the option is to go right
                     {}
                 )
             );
