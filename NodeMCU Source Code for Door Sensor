@@ -1,0 +1,87 @@
+#include <ESP8266HTTPClient.h>
+#include <ESP8266WiFi.h>
+#define REED_SWITCH 5
+
+int status = WL_IDLE_STATUS; //not required.
+
+const char* ssid = "Ndubuisi's iPhone";
+const char* password = "Daniel22!";
+int doorClosed = 1;
+
+void setup() {
+  pinMode(REED_SWITCH, INPUT_PULLUP);
+
+  Serial.begin(115200);
+
+  setupWifi();
+
+}
+
+void setupWifi()
+{
+     // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
+   WiFi.mode(WIFI_STA);
+   status = WiFi.begin(ssid, password);    
+
+   Serial.print("Connecting to: ");
+   Serial.println(ssid);  
+
+   // Wait for connection
+   while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.print(".");
+   }
+   Serial.println("Connected!");
+}
+
+void loop() {
+   if (WiFi.status() != WL_CONNECTED)
+   {
+     setupWifi();
+   }
+  // put your main code here, to run repeatedly:
+    if ((digitalRead(REED_SWITCH) == LOW) && (doorClosed == 1))
+    {
+      Serial.println("Door Open");
+      while (get_http(String("DOOR_OPEN_")) != 0);      
+      doorClosed = 0;
+    } 
+
+    if ((digitalRead(REED_SWITCH) == HIGH) && (doorClosed == 0))
+    {
+      Serial.println("Door Closed");
+      doorClosed = 1;
+    }
+    delay(50);
+
+
+}
+
+
+int get_http(String state)
+{
+   HTTPClient http;
+   int ret = 0;
+   Serial.print("[HTTP] begin...\n");
+    http.begin("http://maker.ifttt.com/trigger/Door_Open/with/key/IUcRr8I-Jl2WIkJyuzDYi"); //HTTP
+    Serial.print("[HTTP] GET...\n");
+    // start connection and send HTTP header
+    int httpCode = http.GET();
+    // httpCode will be negative on error
+    if(httpCode > 0) {
+    // HTTP header has been send and Server response header has been handled
+    Serial.printf("[HTTP] GET code: %d\n", httpCode);
+
+      if(httpCode == HTTP_CODE_OK) {
+        String payload = http.getString();
+        Serial.println(payload);
+      }
+    } else {
+        ret = -1;
+        Serial.printf("[HTTP] GET failed, error: %s\n", http.errorToString(httpCode).c_str());
+        delay(500); // wait for half sec before retry again
+    }
+
+    http.end();
+    return ret;
+}
