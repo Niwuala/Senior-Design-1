@@ -1,0 +1,1560 @@
+#include <LiquidCrystal_I2C.h>
+#include <Wire.h>2
+#include <Adafruit_Sensor.h>
+#include <DHT.h>
+#include <DHT_U.h>
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
+
+int DHTPIN = 14;
+#define DHTTYPE DHT22
+
+
+
+int rPin_1 = 5;
+int rPin_2 = 4;
+int rPin_3 = 0;
+
+DHT dht(DHTPIN, DHTTYPE);
+ 
+const char* ssid = "Ndubuisi's iPhone";
+const char* password = "Daniel22!";
+float temp;
+float convert;
+LiquidCrystal_I2C lcd(0x27, 16, 2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
+
+void setup () {
+ pinMode(rPin_1,OUTPUT);
+ pinMode(rPin_2,OUTPUT);
+ pinMode(rPin_3,OUTPUT);
+ Serial.begin(115200);
+ dht.begin();
+ Wire.begin(12,13);
+  lcd.begin(16,2);
+  lcd.backlight();
+  WiFi.begin(ssid, password);
+  
+  while (WiFi.status() != WL_CONNECTED) {
+ 
+    delay(1000);
+    Serial.println("Connecting..");
+ 
+  }
+}
+ 
+void loop() {
+
+ 
+  if (WiFi.status() == WL_CONNECTED) { //Check WiFi connection status
+     temp = dht.readTemperature();
+     convert = temp * 1.8 + 32;
+    HTTPClient http;  //Declare an object of class HTTPClient
+     
+    http.begin("http://api.thingspeak.com/channels/623673/fields/1/last.txt");  //Specify request destination
+    int httpCode = http.GET();                                                 //Send the request
+             
+    if (httpCode = 200) { //Check the returning code
+ 
+      String payload = http.getString();   //Get the request response payload
+      Serial.println(payload);                     //Print the response payload
+
+     if (payload == "60") {
+      if (convert <= 60.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("60");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 60.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("60");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+        
+     if (payload == "61") {
+      if (convert <= 61.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("61");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 61.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("61");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "62") {
+      if (convert <= 62.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("62");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 61.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("62");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "63") {
+      if (convert <= 63.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("63");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 63.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("63");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "64") {
+      if (convert <= 64.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("64");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 64.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("64");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "65") {
+      if (convert <= 65.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("65");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 65.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("65");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "66") {
+      if (convert <= 66.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("66");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 66.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("66");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "67") {
+      if (convert <= 67.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("67");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 67.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("67");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "68") {
+      if (convert <= 68.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("68");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 68.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("68");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "69") {
+      if (convert <= 69.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("69");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 69.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("69");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "70") {
+      if (convert <= 70.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("70");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 70.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("70");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "71") {
+      if (convert <= 71.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("71");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 71.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("71");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "72") {
+      if (convert <= 72.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("72");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 72.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("72");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "73") {
+      if (convert <= 73.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("73");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 73.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("73");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "74") {
+      if (convert <= 74.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("74");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 74.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("74");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "75") {
+      if (convert <= 75.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("75");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 75.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("75");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "76") {
+      if (convert <= 76.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("76");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 76.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("76");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "77") {
+      if (convert <= 77.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("77");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 77.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("77");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "78") {
+      if (convert <= 78.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("78");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 78.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("78");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+    if (payload == "79") {
+      if (convert <= 79.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("79");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 79.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("79");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "80") {
+      if (convert <= 80.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("80");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 80.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("80");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "81") {
+      if (convert <= 81.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("81");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 81.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("81");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+  if (payload == "82") {
+      if (convert <= 82.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("82");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 82.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("82");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "83") {
+      if (convert <= 83.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("83");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 83.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("83");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "84") {
+      if (convert <= 84.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("84");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 84.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("84");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+    if (payload == "85") {
+      if (convert <= 85.00) {
+        digitalWrite(rPin_1, LOW);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, LOW);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("85");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      } if (convert > 85.00) {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("85");
+          lcd.setCursor(12,1);
+          lcd.print("HEAT");
+      }
+     }
+
+     if (payload == "0") {
+        digitalWrite(rPin_1, HIGH);
+        digitalWrite(rPin_2, HIGH);
+        digitalWrite(rPin_3, HIGH);
+        lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("");
+          lcd.setCursor(12,1);
+          lcd.print("OFF");
+      }
+
+     if (payload == "160") { 
+      if (convert > 60.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("60");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 60.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("60");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+     if (payload == "161") { 
+      if (convert > 61.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("61");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 61.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("61");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+     if (payload == "162") { 
+      if (convert > 62.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("62");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 62.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("62");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+     if (payload == "163") { 
+      if (convert > 63.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("63");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 63.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("63");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+     if (payload == "164") { 
+      if (convert > 64.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("64");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 64.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("64");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "165") { 
+      if (convert > 65.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("65");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 65.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("65");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "166") { 
+      if (convert > 66.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("66");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 66.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("66");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "167") { 
+      if (convert > 67.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("67");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 67.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("67");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "168") { 
+      if (convert > 68.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("68");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 68.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("68");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "169") { 
+      if (convert > 69.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("69");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 69.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("69");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "170") { 
+      if (convert > 70.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("70");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 70.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("70");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "171") { 
+      if (convert > 71.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("71");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 71.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("71");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "172") { 
+      if (convert > 72.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("72");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 72.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("72");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "173") { 
+      if (convert > 73.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("73");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 73.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("73");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "174") { 
+      if (convert > 74.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("74");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 74.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("74");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "175") { 
+      if (convert > 75.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("75");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 75.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("75");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "176") { 
+      if (convert > 76.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("76");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 76.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("76");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "177") { 
+      if (convert > 77.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("77");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 77.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("77");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "178") { 
+      if (convert > 78.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("78");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 78.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("78");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "179") { 
+      if (convert > 79.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("79");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 79.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("79");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "180") { 
+      if (convert > 80.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("80");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 80.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("80");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "181") { 
+      if (convert > 81.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("81");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 81.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("81");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "182") { 
+      if (convert > 82.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("82");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 82.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("82");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+     if (payload == "183") { 
+      if (convert > 83.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("83");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 83.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("83");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+          
+      if (payload == "184") { 
+      if (convert > 84.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("84");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 84.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("84");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+
+
+      if (payload == "185") { 
+      if (convert > 85.00) {
+          digitalWrite(rPin_1, HIGH);
+          digitalWrite(rPin_2, LOW);
+          digitalWrite(rPin_3, LOW);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("85");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        } if (convert <= 85.00) {
+          digitalWrite(rPin_1,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          digitalWrite(rPin_2,HIGH);
+          lcd.clear();
+          lcd.print("CURR: TARG: MODE");
+          lcd.setCursor(0,1);
+          lcd.print(convert);
+          lcd.setCursor(6,1);
+          lcd.print("85");
+          lcd.setCursor(12,1);
+          lcd.print("A/C");
+        }
+        }
+        
+  http.end(); 
+ 
+    }
+delay(1000);
+
+
+}
+
+}
